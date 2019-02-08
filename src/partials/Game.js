@@ -37,8 +37,8 @@ export default class Game {
       // Paddle width and height
       this.paddleWidth,
       this.paddleHeight,
-      // Gap between paddle and board side
-      this.boardGap,
+      // Gap between paddle and right board side
+      (this.width - this.boardGap - this.paddleWidth),
       ((this.height - this.paddleHeight) / 2),
       KEYS.up,
       KEYS.down
