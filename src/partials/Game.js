@@ -45,10 +45,24 @@ export default class Game {
       KEYS.up,
       KEYS.down
     )
+
+    document.addEventListener('keydown', event => {
+      //change boolean from true to false 
+      switch(event.key) {
+        case KEYS.spaceBar:
+          this.pause = !this.pause;
+          // console.log(this.pause);
+          break;
+      }
+    });
   }
 
   render() {
-    
+    // pause the game
+    if(this.pause) {
+      return;
+    }
+
     // Be sure to empty out before rendering again
     this.gameElement.innerHTML = '';
 
@@ -66,6 +80,6 @@ export default class Game {
     this.board.render(svg);
     this.player1.render(svg);
     this.player2.render(svg);
-    this.ball.render(svg);
+    this.ball.render(svg, this.player1, this.player2);
   }
 }
